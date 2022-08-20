@@ -1,0 +1,27 @@
+{% extends 'school/base.html' %}
+{% load static %}
+
+{% block slider %}
+    <section class="section-slider">
+        <div class="slider">
+            <div class="slider-item"><img src="{% static 'school/img/image 45 (3).png' %}" alt=""></div>
+            <div class="slider-item"><img src="{% static 'school/img/image 45 (2).png' %}" alt=""></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+
+{% for item in glavnaya %}
+    {% if item.photo %}
+        <img src="{{ item.photo.url }}"" alt="">
+    {% else %}
+        <div class="content__left-div">
+            <p class="zaglav">{{ item.title }}</p>
+            <p class="text">{{ item.content }}</p>
+            <!-- <p>{{ item.created_at }}</p> -->
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

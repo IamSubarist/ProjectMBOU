@@ -1,0 +1,23 @@
+{% extends 'school/base.html' %}
+
+{% block name_page %}
+    <div class="name_page_div">
+        <p class="name_page">Новости</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% for item in novosti %}
+    {% if item.photo %}
+        <img src="{{ item.photo.url }}"" alt="">
+    {% else %}
+        <div class="content__left-div">
+            <p class="zaglav">{{ item.title }}</p>
+            <p class="text">{{ item.content }}</p>
+            <p>{{ item.created_at }}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
